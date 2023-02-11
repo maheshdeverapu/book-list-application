@@ -1,0 +1,6 @@
+.main_books{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}

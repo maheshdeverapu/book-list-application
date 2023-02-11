@@ -1,0 +1,70 @@
+.emptyAlert{
+    position: fixed;
+    color:red;
+    right: 500px;
+    top:100px;
+     margin: 0px;
+     font-size: 20px;
+    }
+.login-page{
+    width: 100%;
+    height: 100vh;
+    background-color:rgb(255, 255, 255)
+}
+.login-logo{
+    width: 30%;
+}
+.login-content{
+    position: fixed;
+    width: 500px;
+    height: 40vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+    margin-left: 37%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 30px gray;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    gap: 20px;
+    
+
+}
+form>div>input{
+    width: 400px;
+    height: 50px;
+    background-color: white;
+    border:1px solid rgb(196, 196, 196);
+    border-radius: 5px;
+}
+form>button{
+    width: 200px;
+    height: 50px;
+    background-color: rgb(76,87,182);
+    
+    border-radius: 5px;
+    align-self: center;
+}
+.login-signup{
+    align-self: center;
+    text-decoration: none;
+}
+.login-password{
+    position: relative;
+
+}
+.password_type{
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+.password_type1{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}

@@ -1,0 +1,46 @@
+.addBook_content{
+    background-color: rgb(48, 66, 89);
+    height: 100vh;
+    /* margin: auto; */
+}
+.addBook_data{
+background-color: rgb(48, 66, 89);
+width: 40%;
+height: 60vh;
+margin: auto;
+padding-top: 80px ;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+/* margin-top: 150px; */
+}
+/* .main_addBook{
+    width: 80%;
+} */
+.addBook_data>input{
+    width: 70%;
+    height: 35px;
+}
+.addBook_data>button{
+    width: 70%;
+    height: 35px;
+    border: 2px solid rgb(255, 150, 30);
+    color:rgb(255, 150, 30) ;
+    background-color: rgb(48, 66, 89);
+}
+.show_book{
+    border: 2px solid rgb(255, 150, 30);
+    width: 150px;
+    height: 30px;
+    color:rgb(255, 150, 30) ;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    font-size: larger;
+    align-self: flex-start;
+    margin-left: 120px;
+}
+.addBook_data>h1,.addBook_data>p{
+    color: white;
+}
