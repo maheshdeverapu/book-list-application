@@ -24,9 +24,12 @@ connectDatabase();
 index.use(express.json());
 index.use(require("./authentication/signup"))
 
-if(process.env.NODE_ENV === "production"){
-    index.use(express.static("client/build"));
-    index.get('*',(req,res)=>res.sendFile(path.resolve(__dirname,'client','build','index.html')))
+if (process.env.NODE_ENV === 'production') {
+    //*Set static folder up in production
+    app.use(express.static('client/build'));
 
-}
+    app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
+  }
+
+
 index.listen(port,()=>{console.log(`server is up at port ${port}`)})

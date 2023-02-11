@@ -28,6 +28,7 @@ const Signin = ()=>{
                     password
                 })
             }).then(res=>res.json()).then((data)=>{
+                console.log(data)
                 if(data.error){
                     return alert(data.error)
                 }
