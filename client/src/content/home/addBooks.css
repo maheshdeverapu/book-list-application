@@ -19,15 +19,23 @@ gap: 20px;
     width: 80%;
 } */
 .addBook_data>input{
-    width: 70%;
+    width: 50%;
     height: 35px;
+    background-color: white !important;
 }
 .addBook_data>button{
-    width: 70%;
+    width: 50%;
     height: 35px;
     border: 2px solid rgb(255, 150, 30);
     color:rgb(255, 150, 30) ;
     background-color: rgb(48, 66, 89);
+}
+.addBook_data>button:hover{
+    width: 50%;
+    height: 35px;
+    border: 2px solid rgb(48, 66, 89);
+    color:rgb(48, 66, 89) ;
+    background-color: rgb(255, 150, 30);
 }
 .show_book{
     border: 2px solid rgb(255, 150, 30);

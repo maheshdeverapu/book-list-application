@@ -1,0 +1,48 @@
+.addBook_data{
+    background-color: rgb(48, 66, 89);
+    width: 100%;
+    height: 100vh;
+}
+table{
+    width: 1000px;
+    height: 600px;
+}
+table,tr,td{
+  
+    background-color: rgb(0, 0, 0);
+    border-bottom: 2px solid;
+    border-collapse: collapse;
+    color: white;
+}
+td{
+    width: 250px;
+    /* text-align: ce */
+    padding-left: 40px;
+}
+td>p{
+    background-color: rgb(0, 0, 0);
+    font-size: 25px;
+}
+
+.modify_buttons{
+    margin-top: 40px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+gap: 50px;
+}
+.modify_buttons>button{
+width: 400px;
+padding: 20px;
+border-radius: 8px;
+font-size: 20px;
+
+}
+.button_one{
+    color: rgb(150, 41, 41);
+    border: 2px solid rgb(150, 41, 41);
+}
+.button_two{
+    color: rgb(49, 148, 235);
+    border: 2px solid rgb(49, 148, 235);
+}

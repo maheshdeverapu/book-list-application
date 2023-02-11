@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react";
+import "./editBook";
 const EditBook=({eachBookData})=>{
     const [addBookData,setAddBookData] = useState({
         Title:eachBookData.Title,
@@ -45,25 +46,25 @@ const updateBookHandle=(e)=>{
                 <Link className="show_book" to={"/home"}>show Book List</Link>
             
         
-                <h1>Add Book</h1>
-                <p>Create new book</p>
+                <h1>Edit Book</h1>
+                <p>update book's info</p>
             
-                    <input type={"text"} placeholder="Title of the Book" value={addBookData.Title} onChange={(e)=>{setAddBookData({...addBookData,Title:e.target.value})}}/>
+                    <input className="input_editBook" type={"text"} placeholder="Title of the Book" value={addBookData.Title} onChange={(e)=>{setAddBookData({...addBookData,Title:e.target.value})}}/>
                 
             
-                    <input type={"text"} placeholder="ISBN" value={addBookData.ISBN} onChange={(e)=>{setAddBookData({...addBookData,ISBN:e.target.value})}}/>
+                    <input className="input_editBook" type={"text"} placeholder="ISBN" value={addBookData.ISBN} onChange={(e)=>{setAddBookData({...addBookData,ISBN:e.target.value})}}/>
                 
             
-                    <input type={"text"} placeholder="Author" value={addBookData.Author} onChange={(e)=>{setAddBookData({...addBookData,Author:e.target.value})}}/>
+                    <input className="input_editBook" type={"text"} placeholder="Author" value={addBookData.Author} onChange={(e)=>{setAddBookData({...addBookData,Author:e.target.value})}}/>
             
             
-                    <input type={"text"} placeholder="Describe this book" value={addBookData.Publisher} onChange={(e)=>{setAddBookData({...addBookData,Publisher:e.target.value})}}/>
+                    <input className="input_editBook" type={"text"} placeholder="Describe this book" value={addBookData.Publisher} onChange={(e)=>{setAddBookData({...addBookData,Publisher:e.target.value})}}/>
                 
             
-                    <input type={"text"} placeholder="published_date" value={addBookData.Published_date} onChange={(e)=>{setAddBookData({...addBookData,Published_date:e.target.value})}}/>
+                    <input className="input_editBook" type={"text"} placeholder="published_date" value={addBookData.Published_date} onChange={(e)=>{setAddBookData({...addBookData,Published_date:e.target.value})}}/>
                 
             
-                    <input type={"text"} placeholder="Publisher of this Book" value={addBookData.Publisher_of_Book} onChange={(e)=>{setAddBookData({...addBookData,Publisher_of_Book:e.target.value})}}/>
+                    <input className="input_editBook" type={"text"} placeholder="Publisher of this Book" value={addBookData.Publisher_of_Book} onChange={(e)=>{setAddBookData({...addBookData,Publisher_of_Book:e.target.value})}}/>
                 
                 <button onClick={(e)=>{updateBookHandle(e)}}>Submit</button>
             

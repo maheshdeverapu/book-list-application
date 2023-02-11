@@ -47,16 +47,17 @@ const Home=({setEachBookData,eachBookData})=>{
         navigate("/");
     }
     return(
-        <div>
-            <button onClick={(e)=>{logoutHandling(e)}}>Logout</button>
+        <div className="home_page">
+
+            <button className="logout_button" onClick={(e)=>{logoutHandling(e)}}>Logout</button>
             <div>
-                <h1>Books List</h1>
+                <h1 className="head">Books List</h1>
             </div>
-            <div>
+            <div className="add_new_book">
                 {/* <button onClick={(e)=>{addBookHandle(e)}}>+ Add New Book</button> */}
-                <Link to={"/addBook"}>+ Add New Book</Link>
+                <Link className="add_newbook" to={"/addBook"}>+ Add New Book</Link>
             </div>
-            <div style={{display:"grid",gridTemplateColumns:"auto auto auto"}}>
+            <div className="each_book_home" style={{display:"grid",gridTemplateColumns:"20% 20% 20% 20% 20%"}}>
                 {books? (books?.map((book,index)=>{
                     return(
                         <span className="main_books">

@@ -12,9 +12,9 @@ const ChildBook =({book,index,setEachBookData,eachBookData})=>{
     return(
         <div key={index} onClick={(e)=>{eachBookNav(e)}}  className="eachBook">
             <img src={Image} type="jpeg/jpg" alt="book"></img>
-            <p>{book.Title}</p>
-            <p>{book.Author}</p>
-            <p>{book.ISBN}</p>
+            <p style={{color:"darkblue"}}>{book.Title}</p>
+            <p style={{color:"gray"}}>{book.Author}</p>
+            <p style={{color:"white"}}>{book.ISBN}</p>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import "./bookData.css";
 const BookData=({eachBookData})=>{
     const navigate = useNavigate();
@@ -23,16 +23,52 @@ const BookData=({eachBookData})=>{
 }).finally()
    }
     return(
-        <div>
-            <p>{eachBookData.Title}</p>
+        <div className="addBook_data">
+            <Link className="show_book" to={"/home"}>show Book List</Link>
+            <h1>Book's Record</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><p>Title:</p></td>
+                        <td><p> {eachBookData.Title}</p></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><p>Author:</p></td>
+                        <td><p> {eachBookData.Author}</p></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><p>ISBN:</p></td>
+                        <td><p> {eachBookData.ISBN}</p></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><p>Publisher:</p></td>
+                        <td><p> {eachBookData.Publisher}</p></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><p>Published_date:</p></td>
+                        <td><p> {eachBookData.Published_date}</p></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><p>Publisher_of_Book:</p></td>
+                        <td><p> {eachBookData.Publisher_of_Book}</p></td>
+                    </tr>
+                </tbody>
+            </table>
+            {/* <p>Title:<b/> {eachBookData.Title}</p>
             <p>{eachBookData.Author}</p>
             <p>{eachBookData.ISBN}</p>
             <p>{eachBookData.Publisher}</p>
             <p>{eachBookData.Published_date}</p>
-            <p>{eachBookData.Publisher_of_Book}</p>
-            <div>
-                <button onClick={(e)=>{deleteHandling(e)}}>Delete book</button>
-                <button onClick={()=>{navigate("/editBook")}}>Edit book</button>
+            <p>{eachBookData.Publisher_of_Book}</p> */}
+            <div className="modify_buttons">
+                <button className="button_one" onClick={(e)=>{deleteHandling(e)}}>Delete book</button>
+                <button className="button_two" onClick={()=>{navigate("/editBook")}}>Edit book</button>
             </div>
 
         </div>
