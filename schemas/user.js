@@ -4,15 +4,15 @@ const userSchema = new mongoose.Schema({
     userName:{type:String,required:true,unique:true},
     password:{type:String,required:true},
     confirmPassword:{type:String,required:true},
-    tasks:[
+    books:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:"Post"
+            ref:"Posts"
         }
     ]
 
 })
 
-const user = mongoose.model('User',userSchema);
+let User = mongoose.model('users',userSchema);
 
-module.exports = user;
+module.exports = User;

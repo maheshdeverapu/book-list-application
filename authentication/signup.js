@@ -70,7 +70,7 @@ router.post("/signup",async(req,res)=>{
                     const token = jwt.sign({_id:user._id},process.env.SECRETKEY);
                     const {userName} = user;
                     res.json({
-                        token,userName
+                        token,user
                     })
                 }
                 else{
@@ -101,7 +101,9 @@ router.post("/signup",async(req,res)=>{
 
       router.post("/addBooks",authorizationValidation, async(req,res)=>{
         try{
-            const {Title,Author,ISBN,Publisher,Published_date,Publisher_of_Book} = req.body
+            const user = await User.findOne({_id:req.body.user._id})
+            // console.log(req.body.user._id,user)
+            let {Title,Author,ISBN,Publisher,Published_date,Publisher_of_Book} = req.body
             const bookAdd = {Title:Title,
                 Author:Author,
                 ISBN:ISBN,
@@ -110,12 +112,17 @@ router.post("/signup",async(req,res)=>{
                 Publisher_of_Book:Publisher_of_Book
 
             }
-            console.log(req.body.addBookData)
+            // console.log(req.body.addBookData)
             // const newBookAdd = await Activity.create(bookAdd);
             // const user = await User.findById(req.user._id)
             // user.tasks.push(newBookAdd._id)
             // await user.save();
-            const post = await Posts.create(req.body.addBookData)
+            const post = await Posts.create(req.body.addBookData);
+            // console.log(post)
+            // user.books.push(post._id);
+            user.books.push(post._id);
+            await user.save();
+            // console.log(user)
             res.status(201).json({
                 message:"task created"
                 
@@ -127,12 +134,19 @@ router.post("/signup",async(req,res)=>{
             })
         }
       })
-      router.get("/getBooks",authorizationValidation, async(req,res)=>{
+      router.get("/getBooks/:id",authorizationValidation, async(req,res)=>{
         try{
-            const posts = await Posts.find();
+            let user= await User.findById(req.params.id)
+
+       let books=user.books
+       var book_ids= books.map(function(id){return String(id)})
+       let data= await Posts.find({"_id":{$in:book_ids}})   
+       console.log(data)
+    //    res.json(data)
+    //         const posts = await Posts.find();
             res.json({
 
-                posts
+                data
             })
         }catch(err){
             res.status(400).json({
@@ -140,5 +154,65 @@ router.post("/signup",async(req,res)=>{
             })
         }
       })
+      router.put("/updateBook/:id", async (req, res) => {
+        try {
+           let book= await Posts.findById(req.params.id)
+        //    console.log(book)
+        //    console.log(req.body.addBookData)
+           let update= await Posts.updateOne(
+            {_id:req.params.id},
+            {
+                $set:req.body.addBookData
+            }
+           )
+            res.json({
+                messgae:"book updated",
+                book
+            })
+        } catch (error) {
+            res.json({
+                error:error.message
+            })
+    }
+
+    })
+
+    router.delete("/deleteBook/:id", async (req, res) => {
+        try {   
+            console.log(req.params.id);
+                    let book= await Posts.findOne({_id:req.params.id})
+                    // console.log(book)
+                    await book.remove()
+                    let user= await User.findById(req.params.userName)
+                    let index=user.books.indexOf(req.params.id)
+                    user.books.splice(index,1)
+                    await user.save()
+                     res.json({
+                         messgae:"book deleted"
+                     })
+                 } catch (error) {
+                     res.json({
+                         error:error.message
+                     })
+             }
+     
+
+
+//    try {
+    //         let book= await Posts.findById(req.params.id)
+    //         console.log(book)
+    //        await book.remove();
+        
+         
+    //         res.json({
+    //             messgae:"book deleted"
+    //         })
+    //     } catch (error) {
+    //         res.json({
+    //             error:error.message
+    //         })
+    // }
+
+    })
 
 module.exports = router;

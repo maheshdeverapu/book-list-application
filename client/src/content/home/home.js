@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ChildBook from "./childBook";
 import "./home.css"
-const Home=()=>{
+const Home=({setEachBookData,eachBookData})=>{
     const [books,setBooks] = useState([]);
     const navigate = useNavigate();
     useEffect(()=>{
         booksHandle();
     },[])
     const booksHandle=()=>{
+        const id=JSON.parse(localStorage.getItem("userName"))._id;
         
-        fetch("/getBooks",{
+        fetch(`/getBooks/${id}`,{
             method:"get",
             headers:{
                 "Content-Type":"application/json", 
@@ -24,8 +25,8 @@ const Home=()=>{
             if(data.error){
                 return alert(data.error)
             }
-            console.log(data)
-            setBooks(data.posts);
+            console.log(data.data)
+            setBooks(data.data);
             // alert('signin successfull')
             // localStorage.setItem("token",data.token)
             // localStorage.setItem("userName",data.userName)
@@ -55,14 +56,14 @@ const Home=()=>{
                 {/* <button onClick={(e)=>{addBookHandle(e)}}>+ Add New Book</button> */}
                 <Link to={"/addBook"}>+ Add New Book</Link>
             </div>
-            <div>
-                {(books.length!=0)? books?.map((book,index)=>{
+            <div style={{display:"grid",gridTemplateColumns:"auto auto auto"}}>
+                {books? (books?.map((book,index)=>{
                     return(
                         <span className="main_books">
-                            <ChildBook book={book} key={index} />
+                            <ChildBook book={book} key={index} setEachBookData={setEachBookData} eachBookData={eachBookData}/>
                             </span>
                     )
-                }):""}
+                })):""}
             </div>
         </div>
     )

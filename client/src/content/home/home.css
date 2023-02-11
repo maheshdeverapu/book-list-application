@@ -1,5 +1,5 @@
 .main_books{
-    width: 20%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;

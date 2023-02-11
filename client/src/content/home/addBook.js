@@ -6,14 +6,19 @@ const AddBook =()=>{
     const navigate = useNavigate();
     const addBookHandle = (e)=>{
         e.preventDefault();
+        if(Object.keys(addBookData).length!==6){
+            return alert('please fill all fields')
+          
+        }
         fetch("/addBooks",{
             method:"post",
             headers:{
-                "Content-Type":"application/json"                
+                "Content-Type":"application/json",
+                "Authorization":localStorage.getItem("token"),               
             },
 
             body:JSON.stringify({
-                addBookData
+                addBookData,user:JSON.parse(localStorage.getItem("userName"))
                 
             })
         }).then(res=>res.json()).then((data)=>{
@@ -58,7 +63,7 @@ const AddBook =()=>{
             
                     <input type={"text"} placeholder="Publisher of this Book" onChange={(e)=>{setAddBookData({...addBookData,Publisher_of_Book:e.target.value})}}/>
                 
-                <button onClick={(e)=>{addBookHandle(e)}}>Submit</button>
+               <button onClick={(e)=>{addBookHandle(e)}}>Submit</button>
             
            
             </div>

@@ -4,9 +4,10 @@
      flex-direction: column;
     /* flex-wrap: wrap; */
     width: 100%;
-    height: 350px;
+    max-height: 500px;
     align-items: center;
     border-radius: 10px;
+    margin: 10px;
 }
 .eachBook>img{
 width: 100%;

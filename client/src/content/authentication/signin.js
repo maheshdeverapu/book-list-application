@@ -34,7 +34,7 @@ const Signin = ()=>{
                 }
                 alert('signin successfull')
                 localStorage.setItem("token",data.token)
-                localStorage.setItem("userName",data.userName)
+                localStorage.setItem("userName",JSON.stringify(data.user))
                 navigate("/home")
         }).catch((err)=>{
             console.log(err)
