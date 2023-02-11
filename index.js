@@ -9,7 +9,7 @@ if(process.env.NODE_ENV !== "production"){
     require('dotenv').config({path:"config.env"})
 }
 mongoose.set('strictQuery', false);
-const db = process.env.MONGODBURI;
+const db = "mongodb+srv://book_list_application:YEpcVCyHl4dYxavg@cluster0.lnlctld.mongodb.net/?retryWrites=true&w=majority";
 const connectDatabase = async()=>{
     try{
         await mongoose.connect(db);
