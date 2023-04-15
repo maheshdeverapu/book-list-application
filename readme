@@ -6,3 +6,5 @@ url : mongodb+srv://book_list_application:<password>@cluster0.lnlctld.mongodb.ne
 
 MONGODBURI=mongodb+srv://book_list_application:YEpcVCyHl4dYxavg@cluster0.lnlctld.mongodb.net/?retryWrites=true&w=majority
 
+Cast to ObjectId failed for value "null" (type string) at path "_id" for model "posts"
+
